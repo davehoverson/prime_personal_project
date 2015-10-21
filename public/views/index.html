@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainBudget">
+<head>
+    <meta charset="UTF-8">
+    <title> Budget App</title>
+        <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/vendors/angular/angular.min.js"></script>
+    <script src="/vendors/angular-route/angular-route.min.js"></script>
+    <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/ArchiveController.min.js"></script>
+    <script src="/javascripts/BudgetController.min.js"></script>
+    <script src="/javascripts/HomeController.min.js"></script>
+    <script src="/javascripts/SavingsController.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <base href="/">
+</head>
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/current">Current Monthly Budget</a></li>
+        <li><a href="/savings">Savings Funds</a></li>
+        <li><a href="/archive">Archive</a></li>
+    </ul>
+
+    <h1>Hello World!</h1>
+
+    <div id="main">
+        <ng-view>
+
+        </ng-view>
+    </div>
+
+</body>
+</html>
