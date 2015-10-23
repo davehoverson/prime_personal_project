@@ -10,14 +10,15 @@ var session = require('express-session');
 var localStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+//var index = require('./routes/index');
+//var users = require('./routes/users');
+var data = require('./routes/data');
 
 var app = express();
 
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://localhost:27017/gigglebudget";
+var mongoURI = "mongodb://localhost:27017/budgetapp";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function (err) {
@@ -104,8 +105,9 @@ passport.use('local-login', new localStrategy({
         });
 }));
 
-app.use('/', index);
-app.use('/users', users);
+//app.use('/', index);
+//app.use('/users', users);
+app.use('/data', data);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

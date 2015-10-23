@@ -3,9 +3,10 @@
  */
 var app = angular.module('mainBudget', ['ngRoute']);
 
-app.config(function($routeProvider, $locationProvider){
+app.config(['$routeProvider', function($routeProvider){
+
     $routeProvider
-        .when('/',{
+        .when('/home',{
             templateUrl:'views/home.html',
             controller: 'HomeController'
         })
@@ -22,5 +23,4 @@ app.config(function($routeProvider, $locationProvider){
             controller: 'ArchiveController'
         });
 
-    $locationProvider.html5Mode(true);
-});
+}]);

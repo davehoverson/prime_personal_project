@@ -1,6 +1,7 @@
 /**
  * Created by davidhoverson on 10/20/15.
  */
+var path = require('path');
 module.exports = function(app, passport){
     app.get('/', function(req, res){
         res.redirect('/login');
@@ -11,7 +12,7 @@ module.exports = function(app, passport){
     });
 
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/profile', // redirect to the secure profile section
+        successRedirect : '/home', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
@@ -34,7 +35,15 @@ module.exports = function(app, passport){
 
     app.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/');
+        res.redirect('/login');
+    });
+
+    app.get('/home', isLoggedIn, function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/views/index.html"));
+    });
+
+    app.get('*', isLoggedIn, function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/views/index.html"));
     });
 };
 
