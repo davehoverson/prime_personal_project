@@ -11,7 +11,6 @@ var localStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
 
 //var index = require('./routes/index');
-//var users = require('./routes/users');
 var data = require('./routes/data');
 
 var app = express();
@@ -38,18 +37,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+//items removed below based on Passport lecture
 app.use(session({
     secret: 'ilovescotchscotchyscotchscotch',
-    key: 'user',
+    //key: 'user',
     resave: true,
-    saveUninitialized: false,
-    cookie: {maxAge: 600000, secure: false}
+    saveUninitialized: false
+    //cookie: {maxAge: 600000, secure: false}  ---> add a comma above
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
+app.use(express.static(path.join(__dirname, 'public')));
 
 require('./routes/routes.js')(app, passport);
 
@@ -64,12 +64,13 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use('local-signup', new localStrategy({
-    usernameField: 'username',
-    passwordField: 'password',
-    passReqToCallback: true
-},
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+    },
     function(req, username, password, done){
         process.nextTick(function(){
+            //console.log(req.body);
             User.findOne({ 'local.username' : username }, function(err, user){
                 if (err)
                     return done(err);
@@ -79,6 +80,9 @@ passport.use('local-signup', new localStrategy({
                     var newUser = new User();
                     newUser.local.username = username;
                     newUser.local.password = newUser.generateHash(password);
+                    newUser.profile.email = req.body.email;
+                    newUser.profile.firstname = req.body.firstname;
+                    newUser.profile.lastname = req.body.lastname;
                     newUser.save(function(err){
                         if (err) throw err;
                         return done(null, newUser);
@@ -106,7 +110,6 @@ passport.use('local-login', new localStrategy({
 }));
 
 //app.use('/', index);
-//app.use('/users', users);
 app.use('/data', data);
 
 // catch 404 and forward to error handler

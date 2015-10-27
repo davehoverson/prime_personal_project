@@ -9,6 +9,18 @@ var userSchema = new Schema({
     local: {
         username: String,
         password: String
+    },
+    profile: {
+        email: String,
+        firstname: String,
+        lastname: String
+    },
+    budget:
+    {
+        month: String,
+        year: Number,
+        savings: { budgeted: Number, actual: Number },
+        retirement: { budgeted: Number, actual: Number }
     }
 });
 
@@ -21,3 +33,4 @@ userSchema.methods.validPassword = function(password) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+

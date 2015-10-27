@@ -10,10 +10,10 @@ app.controller('BudgetController', ['$scope', '$http', function($scope, $http) {
             method: 'GET',
             url: "/data/getMonths"
         }).then(function(response){
-        console.log(response);
-        //for (var i=0; i <response.data.length; i++){
-        //    $scope.months.push(response.data[i]);
-        //}
+            console.log(response);
+            for (var i=0; i <response.data.length; i++){
+                $scope.months.push(response.data[i]);
+            }
         });
     };
     getMonths();

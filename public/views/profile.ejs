@@ -13,7 +13,8 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1><span class="fa fa-university"></span> Profile Page</h1>
+        <a href="/home#/home" class="btn btn-default btn-sm">Home Page</a>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -25,9 +26,10 @@
                 <h3><span class="fa fa-user"></span> Local</h3>
 
                 <p>
-                    <strong>id</strong>: <%= user._id %><br>
-                    <strong>username</strong>: <%= user.local.username %><br>
-                    <strong>password</strong>: <%= user.local.password %>
+                    <h3>Welcome to Budget Heaven <%= user.profile.firstname %>!!!</h3><br>
+                    <strong>Full Name</strong>: <%= user.profile.firstname %> <%= user.profile.lastname %><br>
+                    <strong>Username</strong>: <%= user.local.username %><br>
+                    <strong>Email</strong>: <%= user.profile.email %>
                 </p>
 
             </div>

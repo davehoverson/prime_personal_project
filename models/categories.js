@@ -4,7 +4,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var CategorySchema = new Schema({
+var categorySchema = new Schema({
     item: String,
     total: Number,
     actual: {type: Number, default: 0},
@@ -12,6 +12,6 @@ var CategorySchema = new Schema({
     notes: String
 });
 
-var categories = mongoose.model('categories', CategorySchema);
+var categories = mongoose.model('categories', categorySchema);
 
 module.exports = categories;

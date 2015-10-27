@@ -4,11 +4,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var MonthSchema = new Schema({
+var monthSchema = new Schema({
     _id: Number,
     month: String
 });
 
-var months = mongoose.model('months', MonthSchema);
+var months = mongoose.model('months', monthSchema);
 
 module.exports = months;

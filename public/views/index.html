@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title> Budget App</title>
+    <!--<link href="/vendors/bootstrap/dist/css/simple-sidebar.css" rel="stylesheet">-->
         <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="/vendors/angular/angular.min.js"></script>
     <script src="/vendors/angular-route/angular-route.min.js"></script>
     <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/calculator.js"></script>
     <script src="/javascripts/ArchiveController.min.js"></script>
     <script src="/javascripts/BudgetController.min.js"></script>
     <script src="/javascripts/HomeController.min.js"></script>
@@ -15,23 +17,79 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#current">Current Monthly Budget</a></li>
-        <li><a href="#savings">Savings Funds</a></li>
-        <li><a href="#archive">Archive</a></li>
-        <li><a href="/logout">Logout</a></li>
-        <li><a href="/profile">Profile</a></li>
-    </ul>
-
-    <h1>Hello World!</h1>
-
-    <div id="main">
-        <ng-view>
-
-        </ng-view>
+<div id="wrapper"></div>
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#current">Current Monthly Budget</a>
+            </li>
+            <li>
+                <a href="#savings">Savings Funds</a>
+            </li>
+            <li>
+                <a href="#archive">Archive</a>
+            </li>
+            <li>
+                <a href="/profile">Profile</a>
+            </li>
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
+            <hr>
+            <li>
+                <div class="calculator" ng-controller="CalculatorController">
+                    <h3>Calculator</h3>
+                    <p><input type="number" ng-model="a" class="calcinput"></p>
+                    <p><input type="number" ng-model="b" class="calcinput"></p>
+                    <h5>Select Operator</h5>
+                    <p><select ng-model="operator">
+                        <option>+</option>
+                        <option>-</option>
+                        <option>*</option>
+                        <option>/</option>
+                    </select></p>
+                    <p class="result">{{ result() }}</p>
+                </div>
+            </li>
+            <hr>
+            <br>
+            <li class="sidebar-brand">
+                <a href="https://www.gatecitybank.com" target="_blank"><img src="../images/GCB.png"></a>
+            </li>
+            <br><br><br><br>
+            <li class="sidebar-brand">
+                <a href="https://www.chase.com" target="_blank"><img src="../images/chase.png"></a>
+            </li>
+        </ul>
     </div>
+            <div id="page-content-wrapper">
+                <div id="main">
+                    <ng-view>
 
+                    </ng-view>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            </div>
+                            <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Calculator</a>-->
+                        </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
 </body>
 </html>

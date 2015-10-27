@@ -6,11 +6,13 @@ var router = express.Router();
 var monthSchema = require('../models/months');
 var yearSchema = require('../models/years');
 var categorySchema = require('../models/categories');
+var user = require('../models/user');
 
-router.get('/getMonths', function(req, res){
-    monthSchema.find(function(err, months){
+
+router.get('/getMonths', function(req, res, next){
+    monthSchema.find(function(err, month){
         if (err) throw err;
-            res.json(months);
+            res.json(month);
     })
 });
 
@@ -22,9 +24,9 @@ router.get('/getYears', function(req, res){
 });
 
 router.get('/getCategories', function(req, res){
-    categorySchema.find(function(err, categories){
+    categorySchema.find(function(err, post){
         if (err) throw err;
-        res.json(categories);
+        res.json(post);
     })
 });
 
@@ -43,5 +45,6 @@ router.post('/addCategories', function(req, res){
         res.sendStatus(200);
     })
 });
+
 
 module.exports = router;
