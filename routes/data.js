@@ -16,17 +16,17 @@ router.get('/getMonths', function(req, res, next){
     })
 });
 
+router.get('/getCategories', function(req, res, next){
+    categorySchema.find(function(err, category){
+        if (err) throw err;
+        res.json(category);
+    })
+});
+
 router.get('/getYears', function(req, res){
     yearSchema.find(function(err, years){
         if (err) throw err;
         res.json(years);
-    })
-});
-
-router.get('/getCategories', function(req, res){
-    categorySchema.find(function(err, post){
-        if (err) throw err;
-        res.json(post);
     })
 });
 
@@ -41,10 +41,36 @@ router.post('/addYears', function(req, res){
 router.post('/addCategories', function(req, res){
     console.log(req.body);
     categorySchema.create(req.body, function(err, post){
-        console.log("Created category: " + post);
+        //console.log("Created category: " + post);
+        res.redirect('/home#/current');
+    })
+});
+
+router.post('/edit', function(req, res, next){
+    categorySchema.findById(req.body._id, function (err, cat){
+        if (err) throw err;
+        //console.log("editing category: " + cat);
+        console.log(req.body);
+        cat.total = req.body.total;
+        cat.actual = req.body.actual;
+        cat.save(function (err) {
+            if (err) throw (err);
+            res.sendStatus(200);
+        })
+    })
+});
+
+router.delete('/remove', function(req, res){
+    console.log(req.body);
+    categorySchema.find({_id: req.body._id}, function(err, cat){
+        if (err) throw err;
+        console.log(cat);
         res.sendStatus(200);
     })
 });
+
+
+
 
 
 module.exports = router;

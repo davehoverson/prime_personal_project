@@ -40,7 +40,6 @@ module.exports = function(app, passport){
     });
 
     app.get('/home', isLoggedIn, function(req, res) {
-        console.log(req.user);
         res.sendFile(path.join(__dirname, "../public/views/index.html"));
     });
 
@@ -54,5 +53,5 @@ function isLoggedIn(req, res, next) {
         return next();
 
     res.redirect('/');
-    console.log("I am not authenticated!")
+    //console.log("I am not authenticated!")
 }

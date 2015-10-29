@@ -3,20 +3,40 @@
  */
 app.controller('BudgetController', ['$scope', '$http', function($scope, $http) {
 
-    $scope.months = [];
+    $scope.categories = [];
 
-    var getMonths = function(){
+    var getCategories = function(){
         $http({
             method: 'GET',
-            url: "/data/getMonths"
+            url: "/data/getCategories"
         }).then(function(response){
-            console.log(response);
+            //console.log(response);
             for (var i=0; i <response.data.length; i++){
-                $scope.months.push(response.data[i]);
+                $scope.categories.push(response.data[i]);
             }
         });
+        //console.log($scope.categories);
     };
-    getMonths();
+    getCategories();
+
+    $scope.edit = function(cat) {
+
+        //$scope.categories[index].total = $("#a"+index).val();
+        //$scope.categories[index].actual = 100;
+        $http.post(
+            '/data/edit',
+            cat
+            //$scope.categories[index]
+        );
+    };
+
+    $scope.delete = function(cat) {
+        $http.delete(
+            '/data/remove',
+            cat
+        );
+        console.log(cat);
+    };
 
 
 

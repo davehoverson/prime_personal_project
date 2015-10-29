@@ -165,3 +165,9 @@ text-align: center;
   color: #E0E0E0;
 
 }
+.test li {
+  list-style: none;
+}
+.cursor {
+  cursor: pointer;
+}

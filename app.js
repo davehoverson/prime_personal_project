@@ -70,7 +70,6 @@ passport.use('local-signup', new localStrategy({
     },
     function(req, username, password, done){
         process.nextTick(function(){
-            //console.log(req.body);
             User.findOne({ 'local.username' : username }, function(err, user){
                 if (err)
                     return done(err);
