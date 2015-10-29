@@ -3,17 +3,43 @@
  */
 app.controller('BudgetController', ['$scope', '$http', function($scope, $http) {
 
-    $scope.categories = [];
+    $scope.other = [];
+    $scope.savings = [];
+    $scope.housing = [];
+    $scope.food = [];
+    $scope.transportation = [];
+    $scope.clothing = [];
+    $scope.medical = [];
+    $scope.personal = [];
+    $scope.recreation = [];
 
     var getCategories = function(){
         $http({
             method: 'GET',
             url: "/data/getCategories"
         }).then(function(response){
-            //console.log(response);
+            //console.log(response.data[2].subcat);
             for (var i=0; i <response.data.length; i++){
-                $scope.categories.push(response.data[i]);
+                if (response.data[i].subcat == 'Savings') {
+                    $scope.savings.push(response.data[i])
+                } else if (response.data[i].subcat == 'Housing') {
+                    $scope.housing.push(response.data[i])
+                } else if (response.data[i].subcat == 'Food') {
+                    $scope.food.push(response.data[i])
+                } else if (response.data[i].subcat == 'Transportation') {
+                    $scope.transportation.push(response.data[i])
+                } else if (response.data[i].subcat == 'Clothing') {
+                    $scope.clothing.push(response.data[i])
+                } else if (response.data[i].subcat == 'Medical') {
+                    $scope.medical.push(response.data[i])
+                } else if (response.data[i].subcat == 'Personal') {
+                    $scope.personal.push(response.data[i])
+                } else if (response.data[i].subcat == 'Recreation') {
+                    $scope.recreation.push(response.data[i])
+                } else
+                    $scope.other.push(response.data[i]);
             }
+
         });
         //console.log($scope.categories);
     };
@@ -31,15 +57,13 @@ app.controller('BudgetController', ['$scope', '$http', function($scope, $http) {
     };
 
     $scope.delete = function(cat) {
+        if(confirm('PLEASE CONFIRM TO DELETE THE ' + cat.item + ' CATEGORY.'))
         $http.delete(
-            '/data/remove',
+            '/data/remove/' + cat._id,
             cat
         );
-        console.log(cat);
+        $scope.categories = [];
+        getCategories();
     };
-
-
-
-    $scope.connectiongood = "Budget Active";
 
 }]);

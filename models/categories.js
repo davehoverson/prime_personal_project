@@ -9,7 +9,8 @@ var categorySchema = new Schema({
     total: Number,
     actual: {type: Number, default: 0},
     percentage: Number,
-    notes: String
+    notes: String,
+    subcat: String
 });
 
 var categories = mongoose.model('categories', categorySchema);

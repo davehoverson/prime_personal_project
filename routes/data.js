@@ -60,16 +60,13 @@ router.post('/edit', function(req, res, next){
     })
 });
 
-router.delete('/remove', function(req, res){
-    console.log(req.body);
-    categorySchema.find({_id: req.body._id}, function(err, cat){
-        if (err) throw err;
-        console.log(cat);
+router.delete('/remove/:id?', function(req, res, next){
+    var id = req.params.id;
+    categorySchema.remove({_id: id}, function(err, cat){
+        if(err) throw err;
         res.sendStatus(200);
-    })
+    });
 });
-
-
 
 
 
