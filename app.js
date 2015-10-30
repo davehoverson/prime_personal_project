@@ -17,7 +17,11 @@ var app = express();
 
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://localhost:27017/budgetapp";
+//**This was the command used to dump for mongolabs (Mark solution)
+//mongodump -d budgetapp -o dump/ --host=127.0.0.1
+
+var mongoURI = "mongodb://dave:dave@ds045694.mongolab.com:45694/budgetapplication";
+//var mongoURI = "mongodb://localhost:27017/budgetapp";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function (err) {
