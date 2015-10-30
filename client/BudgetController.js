@@ -239,6 +239,7 @@ app.controller('BudgetController', ['$scope', '$http', function($scope, $http) {
         $scope.other = [];
         $scope.savings = [];
         $scope.housing = [];
+        $scope.utilities = [];
         $scope.food = [];
         $scope.transportation = [];
         $scope.clothing = [];
