@@ -1,6 +1,6 @@
 <br>
 <h1>Welcome to your Monthly Financial Statement • Enjoy!</h1>
-<h2>Savings Section</h2>
+<h2>Savings</h2>
 <ul class="test">
     <li ng-repeat="cat in savings">
         <div class="row">
@@ -27,7 +27,10 @@
         </div>
     </li>
 </ul>
-<h2>Housing Section</h2>
+<div class="well well-sm">
+    <h4>SAVINGS BUDGETED: ${{ savingsTotal() }} </h4> <h4>SAVINGS SPENT: ${{ savingsActual() }}</h4>
+</div>
+<h2>Housing</h2>
 <ul class="test">
     <li ng-repeat="cat in housing">
         <div class="row">
@@ -54,6 +57,205 @@
         </div>
     </li>
 </ul>
+<div class="well well-sm">
+    <h4>HOUSING BUDGETED: ${{ housingTotal() }} </h4><h4>HOUSING SPENT: ${{ housingActual() }}</h4>
+</div>
+<h2>Utilities</h2>
+<ul class="test">
+    <li ng-repeat="cat in utilities">
+        <div class="row">
+            <div class="col-lg-2">
+                <h4>{{cat.item}}</h4>
+            </div>
+            <div class="col-lg-3">
+                <label>Budgeted Amount</label> <input type="text" id="a{{($index)}}" name="total" ng-model="cat.total" value="{{cat.total}}">
+            </div>
+
+            <div class="col-lg-3">
+                <label>Amount Spent</label> <input type="text" id="b{{($index)}}" name="actual" ng-model="cat.actual" value="{{cat.actual}}">
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="cursor" ng-click="edit(cat)">Save</a></li>
+                    <li><a class="cursor" ng-click="delete(cat)">Delete Category</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="https://www.gatecitybank.com" target="_blank">Gate City Bank</a></li>
+                    <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="well well-sm">
+    <h4>UTILITIES BUDGETED: ${{ utilitiesTotal() }} </h4> <h4>UTILITIES SPENT: ${{ utilitiesActual() }}</h4>
+</div>
+<h2>Food Budget</h2>
+<ul class="test">
+    <li ng-repeat="cat in food">
+        <div class="row">
+            <div class="col-lg-2">
+                <h4>{{cat.item}}</h4>
+            </div>
+            <div class="col-lg-3">
+                <label>Budgeted Amount</label> <input type="text" id="a{{($index)}}" name="total" ng-model="cat.total" value="{{cat.total}}">
+            </div>
+
+            <div class="col-lg-3">
+                <label>Amount Spent</label> <input type="text" id="b{{($index)}}" name="actual" ng-model="cat.actual" value="{{cat.actual}}">
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="cursor" ng-click="edit(cat)">Save</a></li>
+                    <li><a class="cursor" ng-click="delete(cat)">Delete Category</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="https://www.gatecitybank.com" target="_blank">Gate City Bank</a></li>
+                    <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="well well-sm">
+    <h4>FOOD BUDGETED: ${{ foodTotal() }} </h4> <h4>FOOD SPENT: ${{ foodActual() }}</h4>
+</div>
+<h2>Transportation</h2>
+<ul class="test">
+    <li ng-repeat="cat in transportation">
+        <div class="row">
+            <div class="col-lg-2">
+                <h4>{{cat.item}}</h4>
+            </div>
+            <div class="col-lg-3">
+                <label>Budgeted Amount</label> <input type="text" id="a{{($index)}}" name="total" ng-model="cat.total" value="{{cat.total}}">
+            </div>
+
+            <div class="col-lg-3">
+                <label>Amount Spent</label> <input type="text" id="b{{($index)}}" name="actual" ng-model="cat.actual" value="{{cat.actual}}">
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="cursor" ng-click="edit(cat)">Save</a></li>
+                    <li><a class="cursor" ng-click="delete(cat)">Delete Category</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="https://www.gatecitybank.com" target="_blank">Gate City Bank</a></li>
+                    <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="well well-sm">
+    <h4>TRANSPORTATION BUDGETED: ${{ transportationTotal() }} </h4> <h4>TRANSPORTATION SPENT: ${{ transportationActual() }}</h4>
+</div>
+<h2>Clothing</h2>
+<ul class="test">
+    <li ng-repeat="cat in clothing">
+        <div class="row">
+            <div class="col-lg-2">
+                <h4>{{cat.item}}</h4>
+            </div>
+            <div class="col-lg-3">
+                <label>Budgeted Amount</label> <input type="text" id="a{{($index)}}" name="total" ng-model="cat.total" value="{{cat.total}}">
+            </div>
+
+            <div class="col-lg-3">
+                <label>Amount Spent</label> <input type="text" id="b{{($index)}}" name="actual" ng-model="cat.actual" value="{{cat.actual}}">
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="cursor" ng-click="edit(cat)">Save</a></li>
+                    <li><a class="cursor" ng-click="delete(cat)">Delete Category</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="https://www.gatecitybank.com" target="_blank">Gate City Bank</a></li>
+                    <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="well well-sm">
+    <h4>CLOTHING BUDGETED: ${{ foodTotal() }} </h4> <h4>CLOTHING SPENT: ${{ foodActual() }}</h4>
+</div>
+<h2>Medical Budget</h2>
+<ul class="test">
+    <li ng-repeat="cat in medical">
+        <div class="row">
+            <div class="col-lg-2">
+                <h4>{{cat.item}}</h4>
+            </div>
+            <div class="col-lg-3">
+                <label>Budgeted Amount</label> <input type="text" id="a{{($index)}}" name="total" ng-model="cat.total" value="{{cat.total}}">
+            </div>
+
+            <div class="col-lg-3">
+                <label>Amount Spent</label> <input type="text" id="b{{($index)}}" name="actual" ng-model="cat.actual" value="{{cat.actual}}">
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="cursor" ng-click="edit(cat)">Save</a></li>
+                    <li><a class="cursor" ng-click="delete(cat)">Delete Category</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="https://www.gatecitybank.com" target="_blank">Gate City Bank</a></li>
+                    <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="well well-sm">
+    <h4>MEDICAL BUDGETED: ${{ foodTotal() }} </h4> <h4>MEDICAL SPENT: ${{ foodActual() }}</h4>
+</div>
+<div class="well well-lg" id="totals">
+    <div class="row">
+        <div class="col-lg-4">
+            <h4 class>Total Budgeted: </h4><h2> ${{ overallTotal() }} </h2>
+        </div>
+        <div class="col-lg-4" class="a">
+            <h4>Total Spent: </h4><h2> ${{ overallActual() }} </h2>
+        </div>
+        <div class="col-lg-4" class="b">
+            <h4>Money Remaining: </h4><h2> ${{ overallRemaining }} </h2>
+        </div>
+    </div>
+</div>
+
+<hr>
+<h2>Income</h2>
+<ul class="test">
+    <li ng-repeat="cat in income">
+        <div class="row">
+            <div class="col-lg-2">
+                <h4>{{cat.item}}</h4>
+            </div>
+            <div class="col-lg-3">
+                <label>Budgeted Amount</label> <input type="text" id="a{{($index)}}" name="total" ng-model="cat.total" value="{{cat.total}}">
+            </div>
+
+            <div class="col-lg-3">
+                <label>Amount Spent</label> <input type="text" id="b{{($index)}}" name="actual" ng-model="cat.actual" value="{{cat.actual}}">
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="cursor" ng-click="edit(cat)">Save</a></li>
+                    <li><a class="cursor" ng-click="delete(cat)">Delete Category</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="https://www.gatecitybank.com" target="_blank">Gate City Bank</a></li>
+                    <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="well well-sm">
+    <h4>BUDGETED: ${{ incomeTotal() }}</h4> <h4>ACTUAL: ${{ incomeActual() }}</h4>
+</div>
+
 <hr>
 <form action="/data/addCategories" method="post">
     <div class="form-group">

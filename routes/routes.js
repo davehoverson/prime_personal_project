@@ -13,7 +13,7 @@ module.exports = function(app, passport){
     });
 
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/home#/home',
+        successRedirect : '/home#/current',
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
@@ -46,6 +46,20 @@ module.exports = function(app, passport){
     //app.get('*', isLoggedIn, function(req, res) {
     //    res.sendFile(path.join(__dirname, "../public/views/index.html"));
     //});
+
+    /* handle root angular route redirects */
+    //app.get('/home/*', isLoggedIn, function(req, res, next){
+    //    var url = req.originalUrl;
+    //    if (url.split('.').length > 1){
+    //        next();
+    //    } else {
+    //        // handles angular urls. i.e. anything without a '.' in the url (so static files aren't handled)
+    //        console.log('Catch all handled url: ' + url);
+    //        res.redirect('/#' + url);
+    //    }
+    //});
+    //
+    //console.log('Route * loaded.');
 };
 
 function isLoggedIn(req, res, next) {

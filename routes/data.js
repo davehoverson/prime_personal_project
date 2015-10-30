@@ -39,7 +39,7 @@ router.post('/addYears', function(req, res){
 });
 
 router.post('/addCategories', function(req, res){
-    console.log(req.body);
+    //console.log(req.body);
     categorySchema.create(req.body, function(err, post){
         //console.log("Created category: " + post);
         res.redirect('/home#/current');
@@ -50,7 +50,7 @@ router.post('/edit', function(req, res, next){
     categorySchema.findById(req.body._id, function (err, cat){
         if (err) throw err;
         //console.log("editing category: " + cat);
-        console.log(req.body);
+        //console.log(req.body);
         cat.total = req.body.total;
         cat.actual = req.body.actual;
         cat.save(function (err) {

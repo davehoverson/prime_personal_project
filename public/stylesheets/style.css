@@ -163,11 +163,20 @@ text-align: center;
 .result {
   font-size: 20px;
   color: #E0E0E0;
-
 }
 .test li {
   list-style: none;
 }
 .cursor {
   cursor: pointer;
+}
+.testomg {
+  float:right;
+}
+/*}*/
+.a {
+    text-align:center;
+}
+.b {
+    text-align:right;
 }
