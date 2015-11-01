@@ -23,7 +23,10 @@
   /*text-align: center;*/
   /*font-size: 20px;*/
 /*}*/
-
+/*#profile {*/
+  /*display: inline;*/
+  /*width: 300px;*/
+/*}*/
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
@@ -150,8 +153,10 @@
   font-size: 16px;
   line-height: 20px;
 }
-.center {
-text-align: center;
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .auth {
   display: block;
@@ -182,4 +187,8 @@ text-align: center;
 }
 .calccolor {
     color: #d3d3d3;
+}
+.headline {
+  font-family: 'Pacifico', cursive;
+  color: #1fb622;
 }

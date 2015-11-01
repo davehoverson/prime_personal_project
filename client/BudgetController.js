@@ -55,151 +55,150 @@ app.controller('BudgetController', ['$scope', '$http', function($scope, $http) {
             $scope.all = $scope.savings.concat($scope.housing, $scope.utilities, $scope.food, $scope.transportation, $scope.clothing, $scope.medical, $scope.personal, $scope.recreation, $scope.other);
             //console.log($scope.all);
             $scope.savingsTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.savings.length; i++) {
                     total += $scope.savings[i].total;
                 } return total;
             };
             $scope.housingTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.housing.length; i++) {
                     total += $scope.housing[i].total;
                 } return total;
             };
             $scope.foodTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.food.length; i++) {
                     total += $scope.food[i].total;
                 } return total;
             };
             $scope.transportationTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.transportation.length; i++) {
                     total += $scope.transportation[i].total;
                 } return total;
             };
             $scope.clothingTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.clothing.length; i++) {
                     total += $scope.clothing[i].total;
                 } return total;
             };
             $scope.medicalTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.medical.length; i++) {
                     total += $scope.medical[i].total;
                 } return total;
             };
             $scope.personalTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.personal.length; i++) {
                     total += $scope.personal[i].total;
                 } return total;
             };
             $scope.recreationTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.recreation.length; i++) {
                     total += $scope.recreation[i].total;
                 } return total;
             };
             $scope.otherTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.other.length; i++) {
                     total += $scope.other[i].total;
                 } return total;
             };
             $scope.savingsActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.savings.length; i++) {
                     total += $scope.savings[i].actual;
                 } return total;
             };
             $scope.housingActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.housing.length; i++) {
                     total += $scope.housing[i].actual;
                 } return total;
             };
             $scope.foodActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.food.length; i++) {
                     total += $scope.food[i].actual;
                 } return total;
             };
             $scope.transportationActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.transportation.length; i++) {
                     total += $scope.transportation[i].actual;
                 } return total;
             };
             $scope.clothingActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.clothing.length; i++) {
                     total += $scope.clothing[i].actual;
                 } return total;
             };
             $scope.medicalActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.medical.length; i++) {
                     total += $scope.medical[i].actual;
                 } return total;
             };
             $scope.personalActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.personal.length; i++) {
                     total += $scope.personal[i].actual;
                 } return total;
             };
             $scope.recreationActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.recreation.length; i++) {
                     total += $scope.recreation[i].actual;
                 } return total;
             };
             $scope.otherActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for (var i=0; i < $scope.other.length; i++) {
                     total += $scope.other[i].actual;
                 } return total;
             };
             $scope.overallTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for(var i=0; i < $scope.all.length; i++) {
                     total += $scope.all[i].total;
                 } return total;
             };
             $scope.overallActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for(var i=0; i < $scope.all.length; i++) {
                     total += $scope.all[i].actual;
                 } return total;
             };
             $scope.incomeTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for(var i=0; i < $scope.income.length; i++) {
                     total += $scope.income[i].total;
                 } return total;
             };
             $scope.incomeActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for(var i=0; i < $scope.income.length; i++) {
                     total += $scope.income[i].actual;
                 } return total;
             };
             $scope.utilitiesTotal = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for(var i=0; i < $scope.utilities.length; i++) {
                     total += $scope.utilities[i].total;
                 } return total;
             };
             $scope.utilitiesActual = function(){
-                var total = 0;
+                var total = parseFloat(0);
                 for(var i=0; i < $scope.utilities.length; i++) {
                     total += $scope.utilities[i].actual;
                 } return total;
             };
             $scope.overallRemaining = ($scope.overallTotal() - $scope.overallActual());
-
 
         //    $scope.savingsPercent = function(){
         //        $scope.overall
@@ -219,6 +218,7 @@ app.controller('BudgetController', ['$scope', '$http', function($scope, $http) {
         $scope.other = [];
         $scope.savings = [];
         $scope.housing = [];
+        $scope.utilities = [];
         $scope.food = [];
         $scope.transportation = [];
         $scope.clothing = [];
